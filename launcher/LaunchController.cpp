@@ -174,7 +174,8 @@ void LaunchController::login()
     if (!m_accountToUse) {
         // if no account is selected, ask about demo
         if (!m_demo) {
-            m_demo = askPlayDemo();
+            emitFailed(tr("No account selected for launch."));
+            return;
         }
         if (m_demo) {
             // we ask the user for a player name
